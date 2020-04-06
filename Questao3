@@ -1,0 +1,53 @@
+'''
+Dado um número inteiro positivo n, imprimir os n primeiros naturais ímpares.
+'''
+
+# Input principal do usuário
+def leiturnumdigit (numdigit):
+    numdigit = int(input('Digite um número inteiro positivo.\n' ))
+    return numdigit
+
+# Questiona se o usuário quer continuar ou sair do programa
+def contiousair (cont):
+    cont = int(input('Deseja continuar? Digite 1 para continuar ou 0 para sair.\n'))
+    cont = checarsecontehvalido(cont)
+    return cont 
+
+# Checa se o cont inserido pelo usuário é igual a 0 ou 1
+def checarsecontehvalido (cont):
+    if cont == 0 or cont == 1:
+        # Ação executada se o usuário for sair
+        if cont == False:
+            print('O exercício foi finalizado.')
+    else:
+        # Ação executada se o usuário tiver inserido número diferente de 0 e 1
+        print('Número inválido.')
+        cont = contiousair(1)
+    return cont
+
+# Contador apenas para a primeira rodada
+cont = 1
+while cont == 1:
+    # Chama função para ler o input do usuário
+    numdigit = leiturnumdigit(1)
+    # Checa se o input segue os requirements
+    if numdigit <= 0:
+        # Mensagem exibida se não seguir os requisitos básicos
+        print('O número deve ser inteiro e positivo.')
+        # Chama função para usuário decidir se continua ou sai do programa
+        cont = contiousair(1)  
+    # Executa os cálculos com o correto input
+    else:
+        x1 = 0
+        soma = 1
+        print('O(s) primeiro(s)', numdigit , ' número(s) natural(is) ímpar(es) é/são:')
+        for x1 in range(numdigit):
+            # Para impressão apenas do número 1
+            if x1 == 0:
+                print(soma)
+            else:
+                # Para impressão do restante dos número ímpares
+                soma = soma + 2
+                print(soma)
+        # Chama função para usuário decidir se continua ou sai do programa
+        cont = contiousair(1)
