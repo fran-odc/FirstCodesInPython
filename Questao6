@@ -1,0 +1,112 @@
+'''
+Dados o número n de alunos de uma turma de Introdução aos Autômatos a Pilha (MAC 414) e suas notas da primeira prova, determinar a maior e a menor nota obtidas por essa turma (Nota máxima = 100 e nota mínima = 0).
+'''
+# Função: questiona se o usuário quer continuar ou sair do programa
+def contiousair (cont):
+    print('Deseja continuar? Digite 1 para continuar ou 0 para sair.')
+    cont = int(input())
+    cont = checarsecontehvalido(cont)
+    return cont
+
+# Função: verifica se o valor inserido pelo usuário para continuar ou sair do programa é válido
+def checarsecontehvalido (cont):
+    if cont == 0 or cont == 1:
+        # Mensagem exibida ao usuário se ele decidiu sair do programa
+        if cont == False:
+            print('O exercício foi finalizado.')
+    else:
+        # Se o usuário tiver inserido número diferente de 0 e 1, apresenta mensagem de erro
+        print('Número inválido.')
+        # Questiona se o usuário quer continuar ou sair do programa
+        contiousair(cont)
+    return cont     
+
+# Primeira leitura da quantidade de alunos
+print("Qual a quantidade de alunos(as) da turma?")
+qtddealuns = int(input())
+
+# Verificar se a qtd de alunos informada é maior que 0
+while qtddealuns <= 0:
+    # Mensagem de erro se a qtd de alunos for menor ou igual a 0
+    print('Quantidade de aluns inválida.')
+    # Questiona se o usuário deseja continuar ou sair do programa
+    cont = contiousair(1)
+    # Ação executada se o usuário quer sair do programa
+    if cont == 0:
+        exit()
+    else:
+        # Ação executada se o usuário quer continuar - releitura da quantidade de alunos
+        print("Qual a quantidade de alunos(as) da turma?")
+        qtddealuns = int(input())
+
+# Vetor que armazenará a nota dos alunos
+notasaluns = [0]*qtddealuns
+
+print('Digite as notas dos(as) alunos(as).\n')
+for x1 in range(qtddealuns):
+    # Contador do for incrementando
+    x1+=1
+    # Questiona para o usuário a nota do(a) aluno(a) x1
+    print('Aluno(a) ', x1, ':')
+    # Armazena a nota do(a) aluno(a) x1 na lista
+    notasaluns.insert(x1, input())
+
+# Converte a lista de tipo str para tipo int     
+notasaluns = list(map(int, notasaluns)) 
+
+for x1 in range(qtddealuns):
+    # Contador do for incrementando
+    x1+=1
+    # Checa se a nota corresponde a um número entre 0 e 100
+    while (notasaluns[x1] < 0) or (notasaluns[x1] > 100):
+        # Se a nota inserida foi inválida, exibe a mensagem a seguir
+        print('A nota inserida para o aluno', x1, 'é inválida. A nota deve ser de 0 a 100.')
+        # Questiona se o usuário deseja continuar ou sair do programa
+        cont = contiousair(1)
+        # Ação executada se o usuário quer sair do programa
+        if cont == 0:
+            exit()
+        else:
+            # Ação executada se o usuário quer continuar - releitura da nota
+            print('Aluno(a) ', x1, ':')
+            # Armazena a nota do aluno x1 na lista
+            notasaluns.insert(x1, int(input()))
+
+# Variáveis que armazenarão a maior e a menor nota
+valormaior = 0
+valormenor = 101
+# Listas com a qtd de notas maiores e de notas menores
+qtdmaiornota = [0]
+qtdmenornota = [0]
+
+for x1 in range(qtddealuns):
+    x1+=1
+    # Armazena a maior nota
+    if notasaluns[x1] > valormaior:
+        valormaior = notasaluns[x1]
+    # Armazena a menor nota
+    if notasaluns[x1] < valormenor:
+        valormenor = notasaluns[x1]
+
+for x1 in range(qtddealuns):
+    x1+=1
+    # Armazena a qtd de maiores notas
+    if notasaluns[x1] == valormaior:
+        qtdmaiornota.insert(x1, x1)
+    # Armazena a qtd de menores notas
+    if notasaluns[x1] == valormenor:
+        qtdmenornota.insert(x1, x1)    
+
+# Verifica se todos alunos retiraram a mesma nota alta
+if len(qtdmaiornota) == (qtddealuns+1):
+    # Imprime na tela a mensagem e a nota
+    print('Tods aluns tiraram a mesma nota:', valormaior, 'pontos.')
+# Verifica se todos alunos retiraram a mesma nota baixa
+elif len(qtdmenornota) == (qtddealuns+1):
+    # Imprime na tela a mensagem e a nota 
+    print('Tods aluns tiraram a mesma nota:', valormenor, 'pontos.')
+# Verifica se as duas condições anteriores são falsas
+elif len(qtdmaiornota) < (qtddealuns+1) and len(qtdmenornota) < (qtddealuns+1):
+    # Imprime a maior e a menor notas
+    print('A maior nota foi: ', valormaior, '.')
+    print('A menor nota foi: ', valormenor, '.')
