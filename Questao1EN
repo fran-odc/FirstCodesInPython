@@ -1,0 +1,18 @@
+'''
+Input: enter a non-null integer number. Ends when the user enters 0.
+Output: print the square number of each non-null integer number.
+'''
+
+# Read the first number
+print('Please,type a number and press the key enter. Enter 0 to leave the program.')
+naonulo = int(input())
+
+# Check if the user wants to keep on
+while naonulo != 0:
+    # Print the square of the number 'naonulo' entered by the user
+    print('The square number of', naonulo, 'is:', (naonulo ** 2))
+    # Read the next numbers
+    print('Enter a number. Enter 0 to leave the program.')
+    naonulo = int(input())
+# Message when the user leaves the program
+print('Byebye, human.')
