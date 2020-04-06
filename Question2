@@ -1,0 +1,47 @@
+'''
+Input: enter a positive integer number N.
+Output: show the sum of the first N positive integer numbers.
+'''
+
+# Main input of the user
+def leiturnumdigit (numdigit):
+    print('Enter a positive integer number.')
+    numdigit = int(input())
+    return numdigit
+
+# Questione if the user wants to continue or leave the program
+def contiousair (cont):
+    print('Do you want continue? Enter 1 to continue or 0 to leave.')
+    cont = int(input())
+    cont = checarsecontehvalido(cont)
+    return cont 
+
+# Check if the cont from the function contiousair is valid (equal to 1 or 0)
+def checarsecontehvalido (cont):
+    if cont == 0 or cont == 1:
+        # Action if the user decided to leave
+        if cont == False:
+            print('Byebye, human.')
+    else:
+        # Action if the user inserted a different number from 1 or 0
+        print('Invalid number.')
+        cont = contiousair(1)
+    return cont
+
+# Assign 1 to the counter just for the first run
+cont = 1
+while cont == 1:
+    # Call the function to read the user's input
+    numdigit = leiturnumdigit(1)
+    # Check if the input follow the requirements
+    if numdigit <= 0:
+        # Message if the input doesn't meet the requirements
+        print('The number must be integer and positive.')
+        # Call the function to the user decide to continue or to leave the program
+        cont = contiousair(1)  
+    # Execute the calculus as the input attends the requirements
+    else:
+        soma = numdigit * (numdigit + 1) // 2
+        print('The sum of the first', numdigit , ' positive integer numbers is equal to:', soma)
+        # Call the function for the user decide to continue or to leave the program
+        cont = contiousair(1)
