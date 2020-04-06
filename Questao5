@@ -1,0 +1,79 @@
+'''
+Uma loja de discos anota diariamente durante o mês de março a quantidade de discos vendidos. Determinar em que dia desse mês ocorreu a maior venda e qual foi a quantidade de discos vendida nesse dia.
+'''
+
+# Questiona se o usuário quer continuar ou sair do programa
+def contiousair (cont):
+    print('Deseja continuar? Digite 1 para continuar ou 0 para sair.')
+    cont = int(input())
+    cont = checarsecontehvalido(cont)
+    return cont
+
+# Checa se o cont inserido pelo usuário é igual a 0 ou 1
+def checarsecontehvalido (cont):
+    if cont == 0 or cont == 1:
+        # Ação executada se o usuário for sair
+        if cont == False:
+            print('O exercício foi finalizado.')
+    else:
+        # Ação executada se o usuário tiver inserido número diferente de 0 e 1
+        print('Número inválido.')
+        contiousair(cont)
+    return cont     
+
+# Lista que armazenará a quantidade de discos vendidos no mês de março
+qtddediscos = [0]*3
+
+print('Digite a quantidade de discos vendidos nos dias correspondentes.')
+for x1 in range(3):
+    # Contador do for incrementado
+    x1+=1
+    # Questiona para o usuário o valor de discos vendidos no dia x1
+    print('Dia ', x1, ':')
+    # Armazena a quantidade de discos vendidos no dia x1 na lista
+    qtddediscos.insert(x1, input())
+    # Checa se a qtd de discos vendidos corresponde a um número inteiro e positivo
+    while qtddediscos[x1] < '0':
+        # Se a qtd de discos inserida foi inválida, exibe a mensagem a seguir
+        print('Valor inválido.')
+        # Questiona se o usuário deseja continuar ou sair do programa
+        cont = contiousair(1)
+        # Ação executada se o usuário quer sair do programa
+        if cont == 0:
+            exit()
+        else:
+            print('Dia ', x1, ':')
+            # Relê a qtd de vendas e armazena a qtd de vendas no dia x1
+            qtddediscos.insert(x1, input())
+    
+
+qtddediscos = list(map(int, qtddediscos)) 
+
+valormaior = diamaior = 0
+
+for x1 in range(3):
+    x1+=1
+    # Armazena a maior qtd de vendas e o dia que foi vendido
+    if qtddediscos[x1] > valormaior:
+        valormaior = qtddediscos[x1]
+        diamaior = x1      
+
+diasiguais = [0]
+
+for x1 in range(3):
+    x1+=1
+    # Verifica se houve mais de um dia com a maior qtd de vendas
+    if qtddediscos[x1] == valormaior: 
+        diasiguais.insert(x1, x1)
+# Lista que armazena os dias com a maior qtd de vendas    
+diasiguais = list(map(int, diasiguais)) 
+# Checa se houve mais de um dia com a maior qtd de vendas
+if len(diasiguais) > 2:
+    # Imprime esses dias e a qtd de vendas
+    print('Houve mais de um dia do mês de março com a maior quantidade de venda. Esses dias foram:')
+    print(diasiguais)
+    print('Nestes dias, foram vendidos', valormaior, 'discos.')
+else:
+    # Imprime a maior qtd de vendas e o dia que isso ocorreu
+    print('No ', diamaior , 'dia de março houve a maior venda do mês.')
+    print('Neste dia, foram vendidos', valormaior, 'discos.')
