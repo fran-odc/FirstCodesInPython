@@ -1,0 +1,54 @@
+'''
+Dados um inteiro x e um inteiro não-negativo n, calcular x^n.
+'''
+
+# Input principal do usuário
+def leiturnumdigit (numdigit):
+    numdigit = int(input('Digite um número inteiro.\n'))
+    return numdigit
+
+def leiturexpoente (numexpoent):
+    numexpoent = int(input('Digite o expoente inteiro, não-negativo.\n'))
+    return numexpoent
+
+# Questiona se o usuário quer continuar ou sair do programa
+def contiousair (cont):
+    print('Deseja continuar? Digite 1 para continuar ou 0 para sair.')
+    cont = int(input())
+    cont = checarsecontehvalido(cont)
+    return cont 
+
+# Checa se o cont inserido pelo usuário é igual a 0 ou 1
+def checarsecontehvalido (cont):
+    if cont == 0 or cont == 1:
+        # Ação executada se o usuário for sair
+        if cont == False:
+            print('O exercício foi finalizado.')
+    else:
+        # Ação executada se o usuário tiver inserido número diferente de 0 e 1
+        print('Número inválido.')
+        cont = contiousair(1)
+    return cont
+
+# Contador apenas para a primeira rodada
+cont = 1
+
+while cont == 1:
+    # Lê o número inteiro da base
+    numdigit = leiturnumdigit(1)
+    
+    # Lê o número inteiro não-negativo do expoente 
+    numexpoent = leiturexpoente(1)
+    
+    # Checa se o input segue os requirements
+    if numexpoent < 0:
+        # Mensagem exibida se não seguir os requisitos básicos
+        print('O número deve ser inteiro e não-negativo.')
+        # Chama função para usuário decidir se continua ou sai do programa
+        cont = contiousair(1)  
+    # Executa os cálculos com o correto input
+    else:
+        resultado = numdigit ** numexpoent
+        print('O resultado de', numdigit , ' elevado a', numexpoent, 'é: ', resultado)
+        # Chama função para usuário decidir se continua ou sai do programa
+        cont = contiousair(1)
