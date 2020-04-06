@@ -1,0 +1,13 @@
+'''
+Dada uma seqüência de números inteiros não-nulos, seguida por 0, imprimir seus quadrados.
+'''
+
+print('Digite um número. Para sair do programa, digite 0.')
+naonulo = int(input())
+
+while naonulo != 0:
+    print('O quadrado do número', naonulo, 'é:', (naonulo ** 2))
+    print('Digite um número. Para sair do programa, digite 0.')
+    naonulo = int(input())
+
+print('Fim do exercício.')
