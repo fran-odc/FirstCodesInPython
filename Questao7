@@ -1,0 +1,63 @@
+'''
+Dados n e uma seqüência de n números inteiros, determinar a soma dos números pares.
+'''
+# Função: questiona se o usuário quer continuar ou sair do programa
+def contiousair (cont):
+    print('Deseja continuar? Digite 1 para continuar ou 0 para sair.')
+    cont = int(input())
+    cont = checarsecontehvalido(cont)
+    return cont
+
+# Função: verifica se o valor inserido pelo usuário para continuar ou sair do programa é válido
+def checarsecontehvalido (cont):
+    if cont == 0 or cont == 1:
+        # Mensagem exibida ao usuário se ele decidiu sair do programa
+        if cont == False:
+            print('O exercício foi finalizado.')
+    else:
+        # Se o usuário tiver inserido número diferente de 0 e 1, apresenta mensagem de erro
+        print('Número inválido.')
+        # Questiona se o usuário quer continuar ou sair do programa
+        contiousair(cont)
+    return cont     
+
+# Pede para o usuário informar a quantidade de números que será lida
+print('Digite a quantidade de números que será lida:')
+# Armazena a qtd de números
+qtd_numeros = int(input())
+
+# Verifica se a qtd de número é válida
+while qtd_numeros <= 0:
+    # Exibe mensagem de erro se a qtd de número inserida for inválida
+    print('Quantidade inválida.')
+    # Questiona se o usuário quer continuar ou sair do programa
+    cont = contiousair(1)
+    # Ação executada se o usuário quer sair do programa
+    if cont == 0:
+        exit()
+    else:
+        # Ação executada se o usuário quer continuar - releitura da qtd de números
+        print('Digite a quantidade de números que será lida:')
+        qtd_numeros = int(input())
+
+# Lista que armazena os números
+numeros = [0]*qtd_numeros
+
+for x1 in range(qtd_numeros):
+    # Lê os números
+    numeros.insert(x1, input())
+
+# Converte a lista de tipo str para tipo int 
+numeros = list(map(int, numeros))
+
+# Definindo variável nula
+soma = 0
+
+for x1 in range(qtd_numeros):
+    # Checa se o número é par
+    if numeros[x1] % 2 == 0:
+        # Adiciona o número à soma
+        soma+=numeros[x1]
+
+print('A soma dos números pares é:')
+print(soma)
