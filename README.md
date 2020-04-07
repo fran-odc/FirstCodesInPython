@@ -15,4 +15,5 @@
 # Personal and Global Goals
  Pushing these codes here, I aim to learn, improve and practice my knowledge of Python.
  At the same time, I also would like to inspire more people to learn how programming in this incredible language.
- PyLadies
+ 
+ ~PyLadies
