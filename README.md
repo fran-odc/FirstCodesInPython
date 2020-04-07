@@ -10,7 +10,7 @@
  You can find the English version on the branch CodesInEnglish.
  
 # How you can colaborate?
- You can colaborate by commenting improvements, finding errors and validating what you found interesting.
+ You can cooperate by commenting improvements, finding errors and validating what you found interesting.
 
 # Personal and Global Goals
  Pushing these codes here, I aim to learn, improve and practice my knowledge of Python.
