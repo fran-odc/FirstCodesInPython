@@ -1,0 +1,54 @@
+'''
+Dado um inteiro não-negativo n, determinar n!
+'''
+
+# Função: questiona se o usuário quer continuar ou sair do programa
+def contiousair (cont):
+    print('Deseja continuar? Digite 1 para continuar ou 0 para sair.')
+    cont = int(input())
+    cont = checarsecontehvalido(cont)
+    return cont
+
+# Função: verifica se o valor inserido pelo usuário para continuar ou sair do programa é válido
+def checarsecontehvalido (cont):
+    if cont == 0 or cont == 1:
+        # Mensagem exibida ao usuário se ele decidiu sair do programa
+        if cont == False:
+            print('O exercício foi finalizado.')
+    else:
+        # Se o usuário tiver inserido número diferente de 0 e 1, apresenta mensagem de erro
+        print('Número inválido.')
+        # Questiona se o usuário quer continuar ou sair do programa
+        contiousair(cont)
+    return cont     
+
+# Pede para o usuário informar um número inteiro não-negativo
+print('Digite um número inteiro não-negativo:')
+# Armazena o número
+num_para_fatorar = int(input())
+
+# Verifica se a qtd de número é válida
+while num_para_fatorar < 0:
+    # Exibe mensagem de erro se o número inserido for inválido
+    print('Número inválido: o número deve ser inteiro e não-negativo.')
+    # Questiona se o usuário quer continuar ou sair do programa
+    cont = contiousair(1)
+    # Ação executada se o usuário quer sair do programa
+    if cont == 0:
+        exit()
+    else:
+        # Ação executada se o usuário quer continuar - releitura do número
+        print('Digite um número inteiro não-negativo:')
+        num_para_fatorar = int(input())
+
+# Armazena o número em uma nova constante
+num_para_imp = num_para_fatorar
+
+# Laço de repetição para o cálculo do fatorial
+for x1 in range(num_para_fatorar-1):
+  x1+=1
+  num_para_fatorar = num_para_fatorar * x1
+
+# Apresenta o resultado ao usuário
+print('O fatorial de', num_para_imp, 'é:')
+print(num_para_fatorar)
