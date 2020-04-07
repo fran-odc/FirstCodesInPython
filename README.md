@@ -15,7 +15,7 @@
 ## How you can colaborate?
  You can cooperate by commenting improvements, finding errors and validating what you found interesting.
 
-## Personal and Global Goals
+## Goals
  Pushing these codes here, I aim to learn, improve and practice my knowledge of Python.
  At the same time, I also would like to inspire more people to learn how programming in this incredible language.
  
@@ -40,7 +40,7 @@
 ## Como você pode colaborar?
  Você pode cooperar - mas só se você quiser - ao comentar melhorias, encontrar erros e validando acertos que achar interessantes.
 
-## Objetivos Pessoais e Globais
+## Objetivos
  Ao postar os códigos aqui, pretendo aprender, melhorar e praticar meu conhecimento da linguagem de programação Python.
  Ao mesmo tempo, eu também gostaria de inspirar mais pessoas a aprender como programar nessa linguagem incrível.
  
