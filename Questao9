@@ -1,0 +1,116 @@
+'''
+  
+9. Dados n e dois números inteiros positivos i e j diferentes de 0, imprimir em ordem crescente
+os n primeiros naturais que são múltiplos de i ou de j e ou de ambos.
+Exemplo: Para n = 6 , i = 2 e j = 3 a saída deverá ser : 0,2,3,4,6,8.
+
+'''
+
+# Função: questiona se o usuário quer continuar ou sair do programa
+def contiousair (cont):
+    print('Deseja continuar? Digite 1 para continuar ou 0 para sair.')
+    cont = int(input())
+    cont = checarsecontehvalido(cont)
+    return cont
+
+# Função: verifica se o valor inserido pelo usuário para continuar ou sair do programa é válido
+def checarsecontehvalido (cont):
+    if cont == 0 or cont == 1:
+        # Mensagem exibida ao usuário se ele decidiu sair do programa
+        if cont == False:
+            print('O exercício foi finalizado.')
+    else:
+        # Se o usuário tiver inserido número diferente de 0 e 1, apresenta mensagem de erro
+        print('Número inválido.')
+        # Questiona se o usuário quer continuar ou sair do programa
+        contiousair(cont)
+    return cont     
+
+def checarvalidadedevaloresinseridos (num_int_positivo):
+    while num_int_positivo <= 0:
+        # Exibe mensagem de erro se o número inserido for inválido
+        print('Número inválido: o número deve ser inteiro positivo.')
+        # Questiona se o usuário quer continuar ou sair do programa
+        cont = contiousair(1)
+        # Ação executada se o usuário quer sair do programa
+        if cont == 0:
+            exit()
+        else:
+            # Ação executada se o usuário quer continuar - releitura do número
+            print('Digite um número inteiro positivo:')
+            num_int_positivo = int(input())
+    return num_int_positivo
+
+# Pede para o usuário informar um número inteiro positivo
+print('Digite um número inteiro positivo:')
+# Armazena a quantidade de múltiplos a serem exibidos
+qtd_multiplos = int(input())
+
+# Verifica se a quantidade inserida é válida
+qtd_multiplos = checarvalidadedevaloresinseridos(qtd_multiplos)
+
+# Pede para o usuário informar um número inteiro positivo
+print('Digite o primeiro número inteiro positivo:')
+# Armazena a quantidade de múltiplos a serem exibidos
+i = int(input())
+
+# Verifica se o número inserido é válido
+i = checarvalidadedevaloresinseridos(i)
+
+# Pede para o usuário informar um número inteiro positivo
+print('Digite o segundo número inteiro positivo:')
+# Armazena a quantidade de múltiplos a serem exibidos
+j = int(input())
+
+# Verifica se o número inserido é válido
+j = checarvalidadedevaloresinseridos(j)
+
+# Listas que armazenam os múltiplos de i e de j
+multiplosi = [0]
+multiplosj = [0]
+
+# Armazenam os múltiplos de cada um dos números nas listas
+multiplicador = 1
+for x1 in range(1, qtd_multiplos):
+    multiplosi.insert(x1, i*multiplicador)
+    multiplicador+=1
+multiplicador = 1
+for x1 in range(1, qtd_multiplos):
+    multiplosj.insert(x1, j*multiplicador)
+    multiplicador+=1
+
+# Converte a lista de tipo str para tipo int 
+multiplosi = list(map(int, multiplosi))
+multiplosj = list(map(int, multiplosj))
+
+# Lista que armazena todos múltiplos 
+multiplos = [0]
+
+# Concatena listas com multiplos de ambos números
+multiplos = multiplosi + multiplosj
+
+# Converte a lista de tipo str para tipo int 
+multiplos = list(map(int, multiplos))
+
+# Define variável para quantidade de números repetidos na lista multiplos
+contiguais = 0
+
+# Conta a quantidade de números repetidos na lista multiplos
+for x1 in range(0, qtd_multiplos, 1):
+    for y1 in range(qtd_multiplos, 2*qtd_multiplos, 1):
+        if multiplos[x1] == multiplos[y1]:
+            # Armazena qtd de números repetidos na lista
+            contiguais+=1
+
+# Exclui a segunda vez que o número repetido aparece
+for x1 in range(0, qtd_multiplos, 1):
+    for y1 in range(qtd_multiplos, ((2*qtd_multiplos)-contiguais), 1):
+        if multiplos[x1] == multiplos[y1]:
+            del multiplos[y1]
+
+# Organiza em ordem crescente os números
+multiplos = sorted(multiplos)
+
+# Imprime os n primeiros naturais que são múltiplos de i ou de j e ou de ambos
+print('Os ', qtd_multiplos , 'primeiros múltiplos de ', i, ', de ', j , 'ou de ambos são:')
+for x1 in range(qtd_multiplos): print(multiplos[x1])
