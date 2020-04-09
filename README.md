@@ -7,7 +7,7 @@ Este repositório contém os primeiros códigos que escrevi em Python. Os proble
 Todos códigos serão publicados em duas línguas: Português e Inglês. Você pode encontrar a versão em Português no branch CodigosEmPortugues. Você pode encontrar a versão em Inglês no branch CodesInEnglish.
 
 ## Como você pode colaborar?
-Você pode cooperar - mas só se você quiser - ao comentar melhorias, encontrar erros e validando acertos que achar interessantes.
+Você pode cooperar - mas só se você quiser - ao comentar melhorias, encontrar erros e validando acertos que achar interessantes. Muito grata, desde já, por você considerar essa possibilidade!
 
 ## Objetivos
 Ao postar os códigos aqui, pretendo aprender, melhorar e praticar meu conhecimento da linguagem de programação Python. Ao mesmo tempo, eu também gostaria de inspirar mais pessoas a aprender como programar nessa linguagem incrível.
