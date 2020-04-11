@@ -1,0 +1,61 @@
+'''
+
+12.  Dados dois números inteiros positivos, determinar o máximo divisor comum entre eles usando
+o algoritmo de Euclides.
+
+'''
+
+# Função: questiona se o usuário quer continuar ou sair do programa
+def contiousair (cont):
+    print('Deseja continuar? Digite 1 para continuar ou 0 para sair.')
+    cont = int(input())
+    cont = checarsecontehvalido(cont)
+    return cont
+
+# Função: verifica se o valor inserido pelo usuário para continuar ou sair do programa é válido
+def checarsecontehvalido (cont):
+    if cont == 0 or cont == 1:
+        # Mensagem exibida ao usuário se ele decidiu sair do programa
+        if cont == False:
+            print('O exercício foi finalizado.')
+    else:
+        # Se o usuário tiver inserido número diferente de 0 e 1, apresenta mensagem de erro
+        print('Número inválido.')
+        # Questiona se o usuário quer continuar ou sair do programa
+        contiousair(cont)
+    return cont     
+
+def checarvalidadedevalorinserido (num_int_positivo):
+    while num_int_positivo <= 0:
+        # Exibe mensagem de erro se o número inserido for inválido
+        print('Número inválido: o número deve ser inteiro positivo.')
+        # Questiona se o usuário quer continuar ou sair do programa
+        cont = contiousair(1)
+        # Ação executada se o usuário quer sair do programa
+        if cont == 0:
+            exit()
+        else:
+            # Ação executada se o usuário quer continuar - releitura do número
+            print('Digite um número inteiro positivo:')
+            num_int_positivo = int(input())
+    return num_int_positivo
+
+def AlgoritmoDeEuclides (i,j):
+  if j == 0:
+    return i
+  return AlgoritmoDeEuclides (j, i%j)
+
+# Pede para o usuário informar um número inteiro positivo e armazena na constante i
+i = int(input('Digite um número inteiro positivo:'))
+
+# Verifica se valor inserido é válido
+i = checarvalidadedevalorinserido(i)
+
+# Pede para o usuário informar o segundo número inteiro positivo e armazena na constante j
+j = int(input('Digite outro número inteiro positivo:'))
+
+# Verifica se valor inserido é válido
+j = checarvalidadedevalorinserido(j)
+
+resultado = AlgoritmoDeEuclides(i,j)
+print('O máximo divisor comum entre', i, 'e', j, 'é:', resultado)
