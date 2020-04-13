@@ -29,6 +29,7 @@ def checarsecontehvalido (cont):
         contiousair(cont)
     return cont     
 
+# Função: verifica se o valor inserido é um número natural
 def checarvalidadedevalorinserido (num_int_positivo):
     while num_int_positivo < 0:
         # Exibe mensagem de erro se o número inserido for inválido
@@ -53,7 +54,6 @@ n = checarvalidadedevalorinserido(n)
 # Inicia a lista que contem os elementos da sequência de Fibonacci
 soma = [0]
 
-# 
 for i in range(n+1):
     # Se o i for 0, insere na posição i o valor correspondente
     if i == 0:
